@@ -34,7 +34,10 @@ ADD root/.scripts /root/.scripts
 RUN sed -i "s/^bind-address/#bind-address/" /etc/mysql/my.cnf
 RUN sed -i "s/DocumentRoot\ \/var\/www\/html/DocumentRoot\ \/var\/www/g" /etc/apache2/sites-available/000-default.conf
 
+RUN ln -s /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/default
+
 ADD apache2.conf /etc/apache2/apache2.conf
+ADD .htaccess /var/www/
 
 RUN easy_install supervisor
 ADD ./start.sh /start.sh
