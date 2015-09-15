@@ -37,7 +37,7 @@ RUN sed -i "s/DocumentRoot\ \/var\/www\/html/DocumentRoot\ \/var\/www/g" /etc/ap
 RUN ln -s /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/default
 
 ADD apache2.conf /etc/apache2/apache2.conf
-ADD .htaccess /var/www/
+ADD .htaccess /var/www/.htaccess
 
 RUN easy_install supervisor
 ADD ./start.sh /start.sh
