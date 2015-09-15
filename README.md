@@ -94,9 +94,9 @@ sudo docker build -t <yourname>/drupal git://github.com/xiongjungit/docker-drupa
 
 ## 4. 初始用户和密码
 
-* <font color=red>mysql数据库root用户保存在/mysql-root-pw.txt(随机生成)里面
+* <font color=red>mysql数据库root用户密码保存在`/mysql-root-pw.txt`(随机生成)里面
 
-* mysql数据库drupal用户密码保存在/drupal-db-pw.txt(随机生成)里面
+* mysql数据库drupal用户密码保存在`/drupal-db-pw.txt`(随机生成)里面
 
 * drupal 用户名=admin 密码=admin</font>
 
