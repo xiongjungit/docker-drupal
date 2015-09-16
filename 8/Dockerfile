@@ -37,7 +37,6 @@ RUN sed -i "s/DocumentRoot\ \/var\/www\/html/DocumentRoot\ \/var\/www/g" /etc/ap
 RUN ln -s /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/default
 
 ADD apache2.conf /etc/apache2/apache2.conf
-ADD .htaccess /var/www/.htaccess
 
 RUN easy_install supervisor
 ADD ./start.sh /start.sh
@@ -52,7 +51,7 @@ RUN tar -xzvf /tmp/drupal.tar.gz -C /var/www/
 RUN cp -R /var/www/drupal-8.0.0-beta12/* /var/www/
 RUN rm -rf /var/www/drupal-8.0.0-beta12
 
-RUN chmod a+w /var/www/sites/default ; mkdir /var/www/sites/default/files ; chown -R www-data:www-data /var/www/
+ADD ./.htaccess /var/www/.htaccess
 
 RUN wget -O /tmp/phpmyadmin.tar.xz http://mirrors.aliyun.com/ubuntu/pool/universe/p/phpmyadmin/phpmyadmin_4.4.13.1.orig.tar.xz
 RUN xz -d /tmp/phpmyadmin.tar.xz
@@ -60,6 +59,7 @@ RUN tar -xvf /tmp/phpmyadmin.tar -C /tmp
 RUN mv /tmp/phpMyAdmin-4.4.13.1-all-languages /var/www/phpmyadmin
 RUN rm -rf /tmp/*
 
+RUN chmod a+w /var/www/sites/default ; mkdir /var/www/sites/default/files ; chown -R www-data:www-data /var/www/
 
 VOLUME ["/var/lib/mysql/"]
 
