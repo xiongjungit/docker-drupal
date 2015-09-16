@@ -46,12 +46,11 @@ ADD ./supervisord.conf /etc/supervisord.conf
 # Retrieve drupal
 RUN rm -rf /var/www/
 RUN mkdir /var/www/
-RUN wget -O /tmp/drupal.tar.gz http://ftp.drupal.org/files/projects/drupal-8.0.0-beta12.tar.gz
+RUN wget -O /tmp/drupal.tar.gz http://ftp.drupal.org/files/projects/drupal-8.0.0-beta15.tar.gz
 RUN tar -xzvf /tmp/drupal.tar.gz -C /var/www/
-RUN cp -R /var/www/drupal-8.0.0-beta12/* /var/www/
-RUN rm -rf /var/www/drupal-8.0.0-beta12
+RUN cp -ar /var/www/drupal-8.0.0-beta15/. /var/www/
+RUN rm -rf /var/www/drupal-8.0.0-beta15
 
-ADD ./.htaccess /var/www/.htaccess
 
 RUN wget -O /tmp/phpmyadmin.tar.xz http://mirrors.aliyun.com/ubuntu/pool/universe/p/phpmyadmin/phpmyadmin_4.4.13.1.orig.tar.xz
 RUN xz -d /tmp/phpmyadmin.tar.xz
