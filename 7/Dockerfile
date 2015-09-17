@@ -44,12 +44,13 @@ ADD ./supervisord.conf /etc/supervisord.conf
 
 # Retrieve drupal
 RUN rm -rf /var/www/ ; cd /var ; drush dl drupal ; mv /var/drupal*/ /var/www/
-RUN chmod a+w /var/www/sites/default ; mkdir /var/www/sites/default/files ; chown -R www-data:www-data /var/www/
 
 RUN wget -O /tmp/phpmyadmin.zip http://files.phpmyadmin.net/phpMyAdmin/4.4.14.1/phpMyAdmin-4.4.14.1-all-languages.zip
 RUN unzip /tmp/phpmyadmin.zip -d /var/www/
 RUN rm /tmp/phpmyadmin.zip
 RUN mv /var/www/phpMyAdmin-4.4.14.1-all-languages/ /var/www/phpmyadmin 
+
+RUN chmod a+w /var/www/sites/default ; mkdir /var/www/sites/default/files ; chown -R www-data:www-data /var/www/
 
 VOLUME ["/var/lib/mysql/"]
 
