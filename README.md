@@ -208,3 +208,7 @@ GPL v3
 [author]:                 https://github.com/xiongjungit
 [docker_index]:           https://index.docker.io/
 
+## 演示地址
+
+[灵雀云drupal演示网站](http://drupal-dockerxman.myalauda.cn)
+
