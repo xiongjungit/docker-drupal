@@ -3,7 +3,7 @@
 # Drupal VERSION       7.39
 # DOCKER-VERSION       1.7.1
 
-FROM    ubuntu:14.04
+FROM       daocloud.io/library/ubuntu:latest
 MAINTAINER xiongjun dockerxman  <fenyunxx@163.com>
 
 # Env
