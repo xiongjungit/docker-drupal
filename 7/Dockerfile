@@ -14,9 +14,9 @@ ENV TERM xterm
 ADD sources.list /etc/apt/sources.list
 
 # Install.
-RUN apt-get update
-  
-RUN apt-get install -y byobu curl git htop unzip vim wget
+RUN \
+  apt-get update && \
+  apt-get install -y byobu curl git htop unzip vim wget && \
 
 RUN dpkg-divert --local --rename --add /sbin/initctl
 RUN ln -sf /bin/true /sbin/initctl  
